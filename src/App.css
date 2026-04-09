@@ -1,0 +1,213 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= BASE ================= */
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f5f5f7; /* ashy white */
+  color: #1f2937;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* ================= HEADER (UNCHANGED STYLE - CLEANED) ================= */
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1.5rem 2rem;
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================= LOGO (VISIBLE + CLEAN) ================= */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-section h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #4c1d95; /* deep visible purple */
+}
+
+.logo-section p {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* ================= NAV ================= */
+.nav-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.welcome {
+  font-weight: 600;
+  color: #374151;
+}
+
+.nav-btn {
+  padding: 0.5rem 1.3rem;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #6b7280;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-btn.active {
+  background: linear-gradient(135deg, #fbcfe8, #e9d5ff);
+  color: #6b21a8;
+  border: none;
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.25);
+}
+
+/* ================= MAIN ================= */
+.dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+/* ================= MAIN HEADER ================= */
+.dashboard-header h2 {
+  font-size: 2.7rem;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.dashboard-header p {
+  color: #6b7280;
+  margin-top: 0.3rem;
+}
+
+/* ================= GRID ================= */
+.business-grid,
+.intelligence-grid,
+.personal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* ================= CARDS ================= */
+.business-card,
+.intelligence-card,
+.personal-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.8rem;
+  border: 1px solid #ececec;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  position: relative;
+  transition: 0.3s;
+   background: linear-gradient(135deg, #fbcfe8, #e9d5ff);
+  color: #6b21a8;
+
+}
+
+.business-card:hover,
+.intelligence-card:hover,
+.personal-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ================= FIX: REMOVE OLD DARK HEADERS ================= */
+.business-card h3,
+.intelligence-card h3,
+.personal-card h3 {
+  all: unset;
+}
+
+/* ================= SUB-HEADER BUBBLES (MAIN REQUEST) ================= */
+.card-title-pill {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.45rem 1.2rem;
+  border-radius: 999px;
+  margin-bottom: 0.7rem;
+
+  /* SAME AS NAV BUTTON */
+  background: linear-gradient(135deg, #fbcfe8, #e9d5ff);
+  color: #6b21a8;
+
+  border: 1px solid rgba(255,255,255,0.6);
+
+  box-shadow:
+    0 4px 12px rgba(124, 58, 237, 0.18),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* ================= CARD TEXT ================= */
+.business-card p,
+.intelligence-card p,
+.personal-card p {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* ================= STATUS ================= */
+.status {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.status.active {
+  background: #fce7f3;
+  color: #be185d;
+}
+
+.status.running {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.status.online {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* ================= BUTTON ================= */
+.add-entry-btn {
+  margin-top: 2rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #fbcfe8, #e9d5ff);
+  color: #6b21a8;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
