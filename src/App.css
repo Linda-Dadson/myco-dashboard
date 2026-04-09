@@ -7,7 +7,7 @@
 
 /* ================= BASE ================= */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: #f5f5f7; /* ashy white */
   color: #1f2937;
 }
@@ -16,11 +16,12 @@ body {
   min-height: 100vh;
 }
 
-/* ================= HEADER (UNCHANGED STYLE - CLEANED) ================= */
+/* ================= HEADER ================= */
 .header {
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
   padding: 1.5rem 2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .header-content {
@@ -31,7 +32,7 @@ body {
   align-items: center;
 }
 
-/* ================= LOGO (VISIBLE + CLEAN) ================= */
+/* ================= LOGO ================= */
 .logo-section {
   display: flex;
   align-items: center;
@@ -59,6 +60,7 @@ body {
 .welcome {
   font-weight: 600;
   color: #374151;
+  margin-right: 1rem;
 }
 
 .nav-btn {
@@ -68,7 +70,13 @@ body {
   border: 1px solid #e5e7eb;
   color: #6b7280;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-btn:hover {
+  border-color: #d1d5db;
+  transform: translateY(-1px);
 }
 
 .nav-btn.active {
@@ -76,6 +84,7 @@ body {
   color: #6b21a8;
   border: none;
   box-shadow: 0 6px 18px rgba(124, 58, 237, 0.25);
+  font-weight: 600;
 }
 
 /* ================= MAIN ================= */
@@ -85,16 +94,22 @@ body {
   padding: 2.5rem 2rem;
 }
 
-/* ================= MAIN HEADER ================= */
+/* ================= DASHBOARD HEADER ================= */
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
 .dashboard-header h2 {
   font-size: 2.7rem;
   font-weight: 800;
   color: #1f2937;
+  margin-bottom: 0.5rem;
 }
 
 .dashboard-header p {
   color: #6b7280;
-  margin-top: 0.3rem;
+  font-size: 1.1rem;
 }
 
 /* ================= GRID ================= */
@@ -102,9 +117,9 @@ body {
 .intelligence-grid,
 .personal-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 /* ================= CARDS ================= */
@@ -113,67 +128,207 @@ body {
 .personal-card {
   background: #ffffff;
   border-radius: 18px;
-  padding: 1.8rem;
+  padding: 2rem;
   border: 1px solid #ececec;
   box-shadow: 0 6px 18px rgba(0,0,0,0.04);
   position: relative;
-  transition: 0.3s;
-   background: linear-gradient(135deg, #fbcfe8, #e9d5ff);
-  color: #6b21a8;
-
+  transition: all 0.3s ease;
 }
 
 .business-card:hover,
 .intelligence-card:hover,
 .personal-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
 }
 
-/* ================= FIX: REMOVE OLD DARK HEADERS ================= */
+/* ================= CARD TITLES (PILL STYLE) ================= */
 .business-card h3,
-.intelligence-card h3,
+.intelligence-card h4,
 .personal-card h3 {
-  all: unset;
-}
-
-/* ================= SUB-HEADER BUBBLES (MAIN REQUEST) ================= */
-.card-title-pill {
   display: inline-block;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
-  padding: 0.45rem 1.2rem;
+  padding: 0.5rem 1.3rem;
   border-radius: 999px;
-  margin-bottom: 0.7rem;
-
+  margin-bottom: 1rem;
+  
   /* SAME AS NAV BUTTON */
   background: linear-gradient(135deg, #fbcfe8, #e9d5ff);
   color: #6b21a8;
-
   border: 1px solid rgba(255,255,255,0.6);
-
-  box-shadow:
-    0 4px 12px rgba(124, 58, 237, 0.18),
-    inset 0 1px 0 rgba(255,255,255,0.6);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.18);
 }
 
-/* ================= CARD TEXT ================= */
-.business-card p,
-.intelligence-card p,
-.personal-card p {
+/* ================= CARD CONTENT ================= */
+.business-card > p,
+.intelligence-card .content,
+.personal-card > p {
   color: #4b5563;
   font-size: 0.95rem;
-  line-height: 1.4;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
 }
 
-/* ================= STATUS ================= */
+/* ================= PLATFORMS ================= */
+.platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.platform {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.platform.amazon {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #ffffff;
+}
+
+.platform.etsy {
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  color: #ffffff;
+}
+
+.platform.tiktok {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: #ffffff;
+}
+
+.platform.youtube {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+}
+
+.platform.clients {
+  background: linear-gradient(135deg, #d946ef, #c026d3);
+  color: #ffffff;
+}
+
+.platform.scheduling {
+  background: linear-gradient(135deg, #a855f7, #9333ea);
+  color: #ffffff;
+}
+
+.platform.donations {
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  color: #ffffff;
+}
+
+.platform.grants {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+}
+
+.platform.ghana {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: #ffffff;
+}
+
+/* ================= YOUTUBE ANALYTICS ================= */
+.youtube-analytics {
+  background: #f9fafb;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid #f3f4f6;
+  margin-bottom: 1rem;
+}
+
+.youtube-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.youtube-icon {
+  font-size: 1.1rem;
+}
+
+.channel-name {
+  color: #374151;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.youtube-stats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.stat-label {
+  color: #6b7280;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ================= FINANCIAL SUMMARY ================= */
+.financial-summary {
+  background: #f9fafb;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid #f3f4f6;
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  align-items: center;
+}
+
+.metric:last-child {
+  margin-bottom: 0;
+}
+
+.metric .label {
+  color: #6b7280;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.metric .value {
+  font-weight: 700;
+  color: #1f2937;
+  font-size: 1rem;
+}
+
+/* ================= STATUS BADGES ================= */
 .status {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  padding: 0.35rem 0.9rem;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.4rem 1rem;
   border-radius: 20px;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status.online {
+  background: #dcfce7;
+  color: #166534;
 }
 
 .status.active {
@@ -186,22 +341,230 @@ body {
   color: #0369a1;
 }
 
-.status.online {
+/* ================= CARD BORDERS ================= */
+.lynn-living-card {
+  border-left: 4px solid #d946ef;
+}
+
+.lynn-care-card {
+  border-left: 4px solid #8b5cf6;
+}
+
+.foundation-card {
+  border-left: 4px solid #a855f7;
+}
+
+/* ================= INTELLIGENCE CARDS ================= */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.priority {
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.priority.high {
+  background: #fce7f3;
+  color: #be185d;
+}
+
+.priority.medium {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.priority.low {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.card-meta {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.card-meta span {
+  padding: 0.3rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.type {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.business {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.status.active {
   background: #dcfce7;
   color: #166534;
 }
 
-/* ================= BUTTON ================= */
+.status.researching {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.status.complete {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+/* ================= BUTTONS ================= */
 .add-entry-btn {
   margin-top: 2rem;
-  padding: 0.9rem 1.8rem;
+  padding: 0.9rem 2rem;
   border-radius: 999px;
   border: none;
   font-weight: 700;
   cursor: pointer;
-
+  transition: all 0.3s ease;
+  
   background: linear-gradient(135deg, #fbcfe8, #e9d5ff);
   color: #6b21a8;
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.25);
+}
+
+.add-entry-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+}
+
+/* ================= PERSONAL SECTION ================= */
+.sticky-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sticky {
+  background: linear-gradient(135deg, #fbcfe8, #e9d5ff);
+  color: #6b21a8;
+  padding: 0.7rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.journal-preview .entry {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: #f9fafb;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #f3f4f6;
+}
+
+.journal-preview .date {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 700;
+}
+
+.journal-preview .text {
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+.health-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.health-metrics .metric {
+  display: flex;
+  justify-content: space-between;
+  background: #f9fafb;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #f3f4f6;
+}
+
+.health-metrics .value.high {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.health-metrics .value.positive {
+  color: #d946ef;
+  font-weight: 700;
+}
+
+.doc-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.doc-link {
+  color: #8b5cf6;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #f3f4f6;
+  background: #f9fafb;
+  transition: all 0.3s ease;
+}
+
+.doc-link:hover {
+  color: #d946ef;
+  background: #fdf4ff;
+  border-color: #e9d5ff;
+}
+
+/* ================= PROGRESS SECTION ================= */
+.progress-section {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  border: 1px solid #ececec;
+  margin-top: 2rem;
+}
+
+.progress-section h3 {
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.milestone {
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.milestone.completed {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.milestone.in-progress {
+  background: #fdf4ff;
+  color: #a21caf;
+  border: 1px solid #f3e8ff;
 }
 
 /* ================= MOBILE ================= */
@@ -209,5 +572,31 @@ body {
   .header-content {
     flex-direction: column;
     gap: 1rem;
+  }
+  
+  .nav-section {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .business-grid,
+  .intelligence-grid,
+  .personal-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .dashboard {
+    padding: 2rem 1rem;
+  }
+  
+  .dashboard-header h2 {
+    font-size: 2.2rem;
+  }
+  
+  .status {
+    position: static;
+    margin-top: 1rem;
+    display: inline-block;
   }
 }
