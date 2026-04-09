@@ -226,10 +226,10 @@ function App() {
           <h3>📄 External Documents</h3>
           <p>Links to Google Docs, Word, etc.</p>
           <div className="doc-links">
-            <a href="#" className="doc-link">Business Plan 2026</a>
-            <a href="#" className="doc-link">Financial Projections</a>
-            <a href="#" className="doc-link">Ghana Project Proposal</a>
-          </div>
+  <a href="https://docs.google.com/document/d/example1" className="doc-link">Business Plan 2024</a>
+  <a href="https://docs.google.com/document/d/example2" className="doc-link">Financial Projections</a>
+  <a href="https://docs.google.com/document/d/example3" className="doc-link">Ghana Project Proposal</a>
+</div>
         </div>
       </div>
     </div>
